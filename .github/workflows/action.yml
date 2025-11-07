@@ -26,26 +26,11 @@ jobs:
         run: mvn test
         working-directory: back
 
-      - name: Upload backend coverage (JaCoCo)
+      - name: Upload backend coverage
         uses: actions/upload-artifact@v4
         with:
-          name: backend-jacoco
-          path: |
-            back/**/target/site/jacoco/**
-            back/**/target/site/jacoco/index.html
-            back/**/target/site/jacoco/jacoco.xml
-          if-no-files-found: warn
-          retention-days: 7
-
-      - name: Upload backend test reports (Surefire/Failsafe)
-        uses: actions/upload-artifact@v4
-        with:
-          name: backend-tests
-          path: |
-            back/**/surefire-reports/*.xml
-            back/**/failsafe-reports/*.xml
-          if-no-files-found: ignore
-          retention-days: 7
+          name: backend-coverage
+          path: back/**/target/site/jacoco/index.html
 
       # FRONTEND
       - name: Set up Node.js 18 LTS
@@ -62,7 +47,7 @@ jobs:
         run: npm install
         working-directory: front
 
-      - name: Run frontend tests with coverage (Angular)
+      - name: Run frontend tests with coverage
         working-directory: front
         run: ng test --watch=false --browsers=ChromeHeadless --code-coverage
 
@@ -73,5 +58,3 @@ jobs:
           path: |
             front/coverage/**/lcov.info
             front/coverage/**
-          if-no-files-found: warn
-          retention-days: 7
