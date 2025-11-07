@@ -1,0 +1,77 @@
+name: CI - Tests & Coverage (simple)
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # BACKEND
+      - name: Set up Java 11 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "11"
+          cache: maven
+
+      - name: Run backend tests
+        run: mvn test
+        working-directory: back
+
+      - name: Upload backend coverage (JaCoCo)
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-jacoco
+          path: |
+            back/**/target/site/jacoco/**
+            back/**/target/site/jacoco/index.html
+            back/**/target/site/jacoco/jacoco.xml
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Upload backend test reports (Surefire/Failsafe)
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-tests
+          path: |
+            back/**/surefire-reports/*.xml
+            back/**/failsafe-reports/*.xml
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # FRONTEND
+      - name: Set up Node.js 18 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: front/package-lock.json
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Install frontend deps
+        run: npm install
+        working-directory: front
+
+      - name: Run frontend tests with coverage (Angular)
+        working-directory: front
+        run: ng test -- --watch=false --browsers=ChromeHeadless --code-coverage
+
+      - name: Upload frontend coverage (lcov + html)
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: |
+            front/coverage/**/lcov.info
+            front/coverage/**
+          if-no-files-found: warn
+          retention-days: 7
