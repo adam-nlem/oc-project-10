@@ -64,7 +64,7 @@ jobs:
 
       - name: Run frontend tests with coverage (Angular)
         working-directory: front
-        run: ng test -- --watch=false --browsers=ChromeHeadless --code-coverage
+        run: ng test --watch=false --browsers=ChromeHeadless --code-coverage
 
       - name: Upload frontend coverage (lcov + html)
         uses: actions/upload-artifact@v4
