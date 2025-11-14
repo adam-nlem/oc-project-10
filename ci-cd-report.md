@@ -73,7 +73,7 @@ uses: SonarSource/sonarqube-scan-action@v6
 ```
 
 **Fonctionnalités analysées** :
-
+***Expliquer un peu plus les infos Sonar***
 - Bugs
 - Vulnérabilités
 - Code smells
@@ -105,7 +105,7 @@ Les images publiées sont automatiquement taguées `latest`.
 
 | KPI | Valeur proposée |
 |-----|-----------------|
-| Coverage global minimal | 60 % |
+| Coverage global minimal | 70 % |
 | Objectif long terme | 80 % |
 | Coverage New Code (SonarCloud) | ≥ 85 % |
 
@@ -137,7 +137,7 @@ Les données présentées ci-dessous proviennent de la dernière analyse SonarCl
 | Security Hotspots | 2 |
 | Severity High Issues | 2 |
 
-> La qualité du code est globalement bonne, mais la couverture de tests reste insuffisante (objectif : 60 %).
+> La qualité du code est globalement bonne, mais la couverture de tests reste insuffisante (objectif : 70 %).
 
 ### 3.2 Backend – JaCoCo Coverage
 
@@ -202,7 +202,7 @@ Les avis recensés affichent une frustration croissante :
 
 **Cibles** :
 
-- `model` : passer de 0 % → 60 %
+- `model` : passer de 0 % → 70 %
 - `service` : 25 % → 70 %
 - `controller` : 54 % → 80 %
 
@@ -216,41 +216,3 @@ Les avis recensés affichent une frustration croissante :
 - Formulaire de suggestion
 - Fonctionnalité vidéo
 - Mécanisme de réception des blagues
-
-### 4. Améliorer la réactivité via le CI/CD
-
-- Protection de branche
-- Obligation d'un CI vert pour merge
-- Ajout futur d'un job d'intégration E2E
-- Ajout d'un déploiement automatique sur staging
-
-### 5. Documenter le processus pour encourager les contributions OSS
-
-- Contrib guide
-- Architecture du projet
-- Bonnes pratiques tests backend
-- Liste des bonnes first issues
-
-## Conclusion
-
-Grâce à la nouvelle pipeline CI/CD :
-
-- Les tests sont automatisés
-- L'analyse qualité est centralisée via SonarCloud
-- Le déploiement Docker est fiable
-- La contribution open-source est facilitée
-
-Cependant, l'analyse montre clairement que :
-
-> **La couverture backend insuffisante est la principale source d'instabilité.**  
-> **La majorité des retours utilisateurs découlent directement de ce manque de tests.**
-
-### Les prochaines étapes sont donc :
-
-1. **Renforcer les tests backend**
-2. **Corriger les issues critiques**
-3. **Stabiliser les fonctionnalités cassées remontées par les utilisateurs**
-
----
-
-Avec ces améliorations, **BobApp pourra enfin retrouver une bonne expérience utilisateur et un rythme de développement sain**.

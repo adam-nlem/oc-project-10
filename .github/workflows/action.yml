@@ -67,6 +67,7 @@ jobs:
             front/coverage/**
 
       # SONARCLOUD
+      #TODO: make two sonar projects for front and back
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
