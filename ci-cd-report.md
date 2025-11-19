@@ -73,13 +73,13 @@ uses: SonarSource/sonarqube-scan-action@v6
 ```
 
 **Fonctionnalités analysées** :
-***Expliquer un peu plus les infos Sonar***
-- Bugs
-- Vulnérabilités
-- Code smells
-- Duplicate code
-- Couverture
-- Dette technique
+
+- **Bugs**
+- **Vulnérabilités:** Failles de sécurité qui pourraient être exploitées (ex : injections, accès non autorisés).
+- **Code smells**: Mauvaises pratiques de code (structure, lisibilité, complexité) qui ne cassent pas l’application mais rendent le code difficile à maintenir.
+- **Duplicate code**
+- **Couverture**
+- **Dette technique**
 
 Un seul fichier `sonar-project.properties` pilote l'analyse du backend et du frontend.
 
