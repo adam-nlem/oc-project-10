@@ -81,7 +81,7 @@ uses: SonarSource/sonarqube-scan-action@v6
 - **Couverture**
 - **Dette technique**
 
-Un seul fichier `sonar-project.properties` pilote l'analyse du backend et du frontend.
+Un fichier `sonar-project.properties` par projet pilote l'analyse du backend et du frontend.
 
 ### 1.2 Job docker-publish
 
@@ -126,8 +126,8 @@ Les données présentées ci-dessous proviennent de la dernière analyse SonarCl
 
 ### 3.1 Résultats SonarCloud – Vue générale
 
-| Indicateur | Valeur |
-|------------|--------|
+| Indicateur | Valeur Front | Valeur Back |
+|------------|--------------|-------------|
 | Quality Gate | Passed |
 | Coverage global | 35.2 % |
 | Security Issues | 0 |
