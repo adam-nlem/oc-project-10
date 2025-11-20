@@ -128,14 +128,14 @@ Les données présentées ci-dessous proviennent de la dernière analyse SonarCl
 
 | Indicateur | Valeur Front | Valeur Back |
 |------------|--------------|-------------|
-| Quality Gate | Passed |
-| Coverage global | 35.2 % |
-| Security Issues | 0 |
-| Reliability Issues | 1 |
-| Maintainability Issues | 10 |
-| Duplications | 0 % |
-| Security Hotspots | 2 |
-| Severity High Issues | 2 |
+| Quality Gate | Passed | Passed |
+| Coverage global | 0 % | 38.8 % |
+| Security Issues | 0 | 0 |
+| Reliability Issues | 0 | 1 |
+| Maintainability Issues | 4 | 6 |
+| Duplications | 0 % | 0 % |
+| Security Hotspots | 0 | 2 |
+| Severity High Issues | 0 | 2 |
 
 > La qualité du code est globalement bonne, mais la couverture de tests reste insuffisante (objectif : 70 %).
 
