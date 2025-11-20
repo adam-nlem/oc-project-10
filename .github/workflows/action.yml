@@ -67,9 +67,18 @@ jobs:
             front/coverage/**
 
       # SONARCLOUD
-      #TODO: make two sonar projects for front and back
-      - name: SonarCloud Scan
+      - name: SonarCloud Scan - Backend
         uses: SonarSource/sonarqube-scan-action@v6
+        with:
+          projectBaseDir: back
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+
+      - name: SonarCloud Scan - Frontend
+        uses: SonarSource/sonarqube-scan-action@v6
+        with:
+          projectBaseDir: front
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
